@@ -1,9 +1,9 @@
-name: Deploy static content to Pages
+name: Build and deploy
 
 on:
   push:
-    branches: ["master"]
-  workflow_dispatch:
+    branches:
+      - master
 
 permissions:
   contents: read
@@ -11,8 +11,8 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
